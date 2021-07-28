@@ -1,5 +1,4 @@
-# File: .github/workflows/repo-sync.yml
-name: sync-mexp-scripts
+name: sync-Aaron-lv-scripts
 on:
   schedule:
     - cron: '1 0,15 * * *'
@@ -9,7 +8,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-mexp-scripts
+    types: sync-Aaron-lv-scripts
 jobs:
   repo-sync:
     env:
@@ -22,7 +21,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync LXK9301-scripts
+      - name: sync Aaron-lv-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
