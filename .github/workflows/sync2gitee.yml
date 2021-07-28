@@ -1,6 +1,6 @@
 name: sync2gitee
 on:
-schedule:
+  schedule:
     - cron: '20 0,15 * * *'
   workflow_dispatch:
   watch:
