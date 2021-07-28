@@ -1,6 +1,10 @@
 name: sync2gitee
 on:
-  push:
+  schedule:
+    - cron: '1 0,15 * * *'
+  workflow_dispatch:
+  watch:
+    types: started  push:
     branches:
       - jd_scripts
 jobs:
