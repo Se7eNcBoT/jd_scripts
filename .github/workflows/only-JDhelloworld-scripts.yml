@@ -1,4 +1,4 @@
-name: sync-JDhelloworld-scripts
+name: only-JDhelloworld-scripts
 on:
   schedule:
     - cron: '1 0,15 * * *'
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-JDhelloworld-scripts
+    types: only-JDhelloworld-scripts
 jobs:
   repo-sync:
     env:
@@ -20,7 +20,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync-JDhelloworld-scripts
+      - name: only-JDhelloworld-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
