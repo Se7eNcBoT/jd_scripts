@@ -2,7 +2,7 @@ name: sync2gitee
 on:
   push:
     branches:
-      - jd_scripts
+      - jd_scripts,main
 jobs:
   repo-sync:
     env:
