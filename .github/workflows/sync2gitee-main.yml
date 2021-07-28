@@ -1,5 +1,10 @@
 name: sync2gitee-main
 on:
+schedule:
+    - cron: '10 0,15 * * *'
+  workflow_dispatch:
+  watch:
+    types: started
   push:
     branches:
       - main
