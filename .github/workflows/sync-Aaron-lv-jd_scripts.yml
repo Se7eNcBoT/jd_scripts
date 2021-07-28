@@ -1,29 +1,30 @@
 name: sync-Aaron-lv-jd_scripts
-
 on:
   schedule:
-    - cron:  "*/30 * * * *"
+    - cron: '1 0,15 * * *'
   workflow_dispatch:
   watch:
     types: started
-
+  push:
+    branches: [ master ]
+  repository_dispatch:
+    types: sync-Aaron-lv-jd_scripts
 jobs:
   repo-sync:
+    env:
+      PAT: ${{ secrets.PAT }} #此处PAT需要申请，教程详见：https://www.jianshu.com/p/bb82b3ad1d11
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
-    timeout-minutes: 2
     steps:
       - uses: actions/checkout@v2
-      - name: init
-        run: |
-          git config --global user.name 'GitHub Actions' && git config --global user.email 'noreply@github.com'
-      - name: git clone Aaron-lv/sync
-        run: |
-          git clone https://github.com/Aaron-lv/sync.git jd_scripts
-      - name: git push Aaron-lv/sync
-        uses: ad-m/github-push-action@v0.6.0
         with:
-          directory: jd_scripts
+          persist-credentials: false
+
+      - name: sync-Aaron-lv-jd_scripts
+        uses: repo-sync/github-sync@v2
+        if: env.PAT
+        with:
+          source_repo: "https://github.com/Aaron-lv/sync.git"
+          source_branch: "jd_scripts"
+          destination_branch: "jd_scripts"
           github_token: ${{ secrets.PAT }}
-          branch: jd_scripts
-          force: true
