@@ -1,6 +1,15 @@
 name: 'GitHub Actions Mirror'
 
-on: [push, delete]
+on:
+  schedule:
+    - cron: '1 0,15 * * *'
+  workflow_dispatch:
+  watch:
+    types: started
+  push:
+    branches: [ master ]
+  repository_dispatch:
+    types: GitHub Actions Mirror
 
 jobs:
   mirror_to_gitee:
