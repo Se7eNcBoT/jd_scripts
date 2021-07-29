@@ -7,7 +7,7 @@ on:
   watch:
     types: started
   push:
-    branches: [ master ]
+    branches: [ jd_scripts ]
   repository_dispatch:
     types: sync-Aaron-lv-scripts
 jobs:
@@ -37,6 +37,6 @@ jobs:
         with:
           src: github/Se7eNcBoT
           dst: gitee/mexp
-          static_list: "jd_script"
+          static_list: "jd_scripts"
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
