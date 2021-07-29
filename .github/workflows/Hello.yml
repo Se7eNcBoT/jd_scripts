@@ -7,7 +7,7 @@ on:
   watch:
     types: started
   push:
-    branches: [ master ]
+    branches: [ main ]
   repository_dispatch:
     types: sync-JDhelloworld-scripts
 jobs:
