@@ -4,10 +4,10 @@ on:
     - cron: '1 0,15 * * *'
   workflow_dispatch:
   watch:
-    types: started
+    types: started  
   push:
     branches:
-      - master
+      - jd_scripts
 jobs:
   repo-sync:
     env:
