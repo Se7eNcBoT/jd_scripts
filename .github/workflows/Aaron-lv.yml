@@ -37,6 +37,6 @@ jobs:
         with:
           src: github/Se7eNcBoT
           dst: gitee/mexp
-          static_list: "jd_scripts"
+          static_list: "jd_script"
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
