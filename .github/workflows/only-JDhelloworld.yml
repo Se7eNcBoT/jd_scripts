@@ -1,7 +1,7 @@
 name: only-JDhelloworld-scripts
 on:
   schedule:
-    - cron: '1 0,8,16 * * *'
+    - cron: '1 0-23/4 * * *'
   workflow_dispatch:
   watch:
     types: started
